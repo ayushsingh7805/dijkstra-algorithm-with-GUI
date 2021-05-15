@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shortest Path using Dijkstra's Algorithm 2</title>
+<link rel="stylesheet" type="text/css" href="dijkstra.css">
+<!-- By Mostafa Dahshan <mdahshan@outlook.com> -->
+	
+</head>
+<body>
+	<div class="header">
+		<h1>Dijkstra's Algorithm With GUI</h1>
+		
+	  </div>
+	  
+
+<div class="container">
+
+	<div class="item">
+		<svg width="640" height="480" version="1.1" id="shortestPathSvg" xmlns="http://www.w3.org/2000/svg">
+			<g id="gedge"></g>
+			<g id="gvertex"></g>
+		</svg>
+		<br>
+		<button id="savesvgbutton" style="display:none">Save graph</button>
+		<button type="reset" style="width: 250px; " onClick="window.location.reload();" value="newGraph"> New Graph</button>
+	    <br>
+		<br>
+		<div style=" background-color: white; border:5px solid   ;">
+			<h2>How To Use</h2>
+		<ul>
+		<li>Switch On <b>Set vertex</b> to make a vertice, click anywhere in the canvas to create a vertex.</li>
+		<li>To connect vertices switch on  <b>Draw edge</b>  then click on the vertices you want to connect.</li>
+		<li>To give weight of edge switch on <b>Set Weight</b> </li>
+		<li>To select the starting point switch on  <b> Start Point</b> then click on the starting vertex to get the results.</li>
+		</ul>
+		</div>
+		
+		
+		
+	</div>
+	
+
+	<div class="item2"   >
+		<table class="table1" style="border:5px solid">
+			<td>
+				<label class="switch">
+				<input type="checkbox" name="radWorkMode" value="drawVertex" checked="">
+				<span class="slider round"></span>
+			</label></td>
+			<td style="word-wrap: normal;">Set Vertex</td>
+		
+			<td>
+				<label class="switch">
+					<input type="checkbox" name="radWorkMode" value="drawEdge">
+					<span class="slider round"></span>
+				</label></td>
+			<td>Draw Edge</td>
+		
+			<td>
+				<label class="switch">
+					<input type="checkbox" name="radWorkMode" value="setStart">
+					<span class="slider round"></span>
+				</label>
+				</td>
+			<td>Start Point</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label class="switch">
+					<input type="checkbox" name="radWorkMode" value="delVertexEdge">
+					<span class="slider round"></span>
+				</label></td>
+			<td>Delete vertex or edge</td>
+				<td><label class="switch">
+					<input type="checkbox" name="radWorkMode" value="setCostLabel">
+					<span class="slider round"></span>
+				</label></td></td>
+				<td>Set Weight</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		
+		<table id="dijkstraSteps" ></table>
+		
+		<!-- The Modal -->
+		<div id="divEdgeCost" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<span class="close" onclick="closeDialogEdgeCost()">&times;</span>
+			<label>Edge Cost</label>
+				<input type="number" maxlength="4" required="required" autocomplete="off" min="1" max="1000" name="inputEdgeCost" id="inputEdgeCost">
+				<button id="btnSetEdgeCost">Set value</button>
+				
+		  </div>
+		</div>
+		
+		<div id="divVertexLabel" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<span class="close" onclick="closeDialogVertexLabel()">&times;</span>
+			<label>Vertex Label</label>
+				<input type="text" maxlength="1" required="required" autocomplete="off" name="inputVertexLabel" id="inputVertexLabel">
+				<button id="btnSetVertexLabel">Set value</button>
+				
+		  </div>
+		</div>
+		
+		
+		<script src="dijkstra.js"></script>
+		
+		
+		
+		<script>
+			const switches = document.querySelectorAll("input[type=checkbox]");
+			for(const s of switches) s.addEventListener("change", check);
+			
+			function check(e) {
+			  //count the number of checked switches:
+			  let n = 0;
+			  for(const s of switches) {
+				if(s.checked) n++;
+			  }
+			  // if there is more than one checked (including the one you just clicked), uncheck it:
+			  if(n > 1) e.target.checked = false;
+			}
+			</script>
+
+	</div>
+	
+</div>
+
+<div class="setfotterdown">
+	<div class="footer-dark">
+        <footer>
+			
+            <div class="container">
+                <br>
+				
+				<div style="margin-left: 10%; margin-top: 3.5%; " >
+					
+					<div class="FANCYTEXT"> MADE BY  :   -  Ayush(19CSU060) & Bhavya(19CSU068)  </div>
+				</div>
+				
+            </div>
+			
+                    
+        </footer>
+    </div>
+	
+</div>
+
+
+</body>
+</html>
